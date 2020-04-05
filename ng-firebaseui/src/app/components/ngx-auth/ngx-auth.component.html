@@ -1,0 +1,10 @@
+<!--subscribe to user$ variable using ng async pipe-->
+<div *ngIf="auth.user$ | async as user; else login">
+  <!--pre tag to wrap json object and make more readable-->
+  <pre>
+    {{ user | json }}
+  </pre>
+</div>
+<div id="login-container" #login>
+  <ngx-auth-firebaseui (onSuccess)="printUser($event)"></ngx-auth-firebaseui>
+</div>
